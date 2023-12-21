@@ -1,0 +1,54 @@
+
+<div class="site-section">
+  <div class=" container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form #teamForm="ngForm" (ngSubmit)="searchTeam()">
+          
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="search team by staduim" [(ngModel)]="obj.search" name="search">
+          </div>
+         
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary py-3 px-5" value="Search">
+          </div>
+          
+         
+        </form>  
+      </div>
+  
+    </div>
+  </div>
+</div>
+
+
+<div class="widget-next-match">
+    <table class="table custom-table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>fondution</th>
+          <th>onwer</th>
+          <th>Action</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of teams">
+          <td>{{team._id}}</td>
+          <td><strong class="text-white">{{team.name}}</strong></td>
+          <td>{{team.foundation}}</td>
+          <td>{{team.Owner}}</td>
+          <th >
+            <button type="button" class="btn btn-primary"(click)="EDIT(team._id)">EDIT</button>
+            <button type="button" class="btn btn-success"(click)="goToDisplay(team._id)">Display</button>
+            <button type="button" class="btn btn-danger" (click)="deleteTeamsById(team._id)">Dellete</button>
+        </th>
+          
+        </tr>
+       
+         
+      </tbody>
+    </table>
+  </div>

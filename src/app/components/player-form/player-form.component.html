@@ -1,0 +1,66 @@
+<div class="site-wrap">
+
+    
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+    <app-banner [a]="title"></app-banner>
+
+    
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            
+            <form [formGroup]="playerForm" (submit)="editOrAdd()">
+              <div class="form-group">
+                  <input type="text" formControlName="Name" [(ngModel)]="obj.Name" class="form-control" placeholder="Name" />
+              </div>
+              <div *ngIf="
+        playerForm.controls['Name'].invalid &&
+        (playerForm.controls['Name'].touched ||
+          playerForm.controls['Name'].dirty)
+      ">
+                  <div *ngIf="playerForm.controls['Name'].errors.required">
+                      player name is required
+                  </div>
+                  <div *ngIf="playerForm.controls['Name'].errors.minlength">
+                      player name should have at least 3 carac
+                  </div>
+              </div>
+              <div class="form-group">
+                  <input type="number" formControlName="age" [(ngModel)]="obj.age" class="form-control" placeholder="Age" />
+              </div>
+              <div class="form-group">
+                  <input type="number" formControlName="nbr" [(ngModel)]="obj.nbr" class="form-control" placeholder="Number" />
+              </div>
+              <div class="form-group">
+                  <input type="text" formControlName="position" [(ngModel)]="obj.position" class="form-control" placeholder="Position" />
+              </div>
+              <div class="form-group">
+                <select name="teamId" id="teamId" class="form-control" (change)="selectTeam($event)">
+                  <option [value]="t._id" *ngFor="let t of teams" style="color: black;">{{t.name}}</option>
+                </select>
+            </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary py-3 px-5">{{ title }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+
+   
+
+
+
+  </div>

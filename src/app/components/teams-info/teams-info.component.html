@@ -1,0 +1,37 @@
+<app-banner [a]="title"></app-banner>
+<div class="widget-next-match">
+    <table class="table custom-table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>fondution</th>
+          
+          <th>onwer</th>
+          <th>playears</th>
+          
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <td>{{team._id}}</td>
+          <td><strong class="text-white">{{team.name}}</strong></td>
+          <td>{{team.fondution}}</td>
+      
+          <td>{{team.onwer}}</td>
+         
+          <td>
+            <span *ngFor="let p of team.playears">
+              {{p.Name}} {{p.position}} {{p.age}} 
+            </span>
+          </td>
+          
+        </tr>
+       
+         
+      </tbody>
+    </table>
+  </div>
+
+

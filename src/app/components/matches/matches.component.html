@@ -1,0 +1,22 @@
+
+
+
+<app-banner [a]="title"></app-banner>
+<div style="position:absolute;margin-top:-20%;margin-left: 42%;">
+     <form >
+       
+       <div class="form-group">
+         <input type="text" class="form-control" placeholder="insert team" [(ngModel)]="term" name="teamrecherche">
+       </div>
+      
+       
+       
+      
+     </form>  
+   </div>
+
+<div *ngIf="matches.length ==0"> Matches Not Found </div>
+     <div *ngFor="let match of matches | custmefilter:term">
+     <app-result [x]="match"></app-result>
+     </div>
+     
